@@ -7,7 +7,10 @@
 
 grep "max_usb_current=1" /boot/config.txt
 if [ $? -eq 1 ] # ? will be 1 if grep found nothing
-  then
+then
   #append to the file
+  echo "~~> updating /boot/config.txt"
   echo "max_usb_current=1" >> /boot/config.txt
+else
+  echo "~~> current properly configured, skipping..."
 fi

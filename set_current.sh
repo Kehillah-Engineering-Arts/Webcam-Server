@@ -11,6 +11,7 @@ then
   #append to the file
   echo "~~> updating /boot/config.txt"
   echo "max_usb_current=1" >> /boot/config.txt
+  sudo reboot
 else
   echo "~~> current properly configured, skipping..."
 fi

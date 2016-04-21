@@ -17,8 +17,8 @@ then
   	# Note to self: clone to the correct directory
  		echo "git clone https://github.com/Kehillah-Engineering-Arts/Webcam-Server.git" >> ~/.profile
  	else
- 		echo "git pull" >> ~/.profile 
+ 		echo "git pull" >> ~/.profile
 	fi
-  echo "sudo ./run.sh" >> ~/.profile 
+  echo "sudo ./run.sh" >> ~/.profile
   sudo reboot
 fi

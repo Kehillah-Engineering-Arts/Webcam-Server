@@ -1,6 +1,4 @@
-import subprocess
 import datetime
-import time
 import shutil
 
 piDir = "/home/motion"

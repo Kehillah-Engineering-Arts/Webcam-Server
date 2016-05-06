@@ -20,5 +20,13 @@ then
  		echo "git pull" >> ~/.profile
 	fi
   echo "sudo ./run.sh" >> ~/.profile
+
+  # Set up cronjob
+  crontab -l > mycron
+  echo "0 0 * * * /home/pi/Webcam-Server/transfer.py" >> mycron
+  crontab mycron
+  rm mycron
+
+
   sudo reboot
 fi

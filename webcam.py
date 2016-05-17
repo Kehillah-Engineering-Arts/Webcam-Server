@@ -11,8 +11,9 @@ while True:
 		folder = datetime.datetime.now().strftime("%m-%d-%y")
 		fullPath = directory + "/" + folder
 		if not os.path.exists(fullPath):
-			print("Avi why!!!!!")
 			os.makedirs(fullPath)
+		else:
+			print("fullPath" + fullPath)
 		filename = datetime.datetime.now().strftime("%m-%d-%y-%H:%M:%S")
 		command = "sudo fswebcam -r 640x480 -q " + fullPath + "/" + filename + ".jpg"
 		grab_cam = subprocess.Popen(command, shell=True)

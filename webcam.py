@@ -6,7 +6,7 @@ import os
 directory = "/home/motion"
 while True:
 	current_seconds = datetime.datetime.now().strftime("%S")
-	if ((int(current_seconds))%10)==0:
+	if ((int(current_seconds))%1)==0:
 		folder = datetime.datetime.now().strftime("%m-%d-%y")
 		fullPath = directory + "/" + folder
 		if not os.path.exists(fullPath):

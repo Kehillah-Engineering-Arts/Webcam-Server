@@ -6,7 +6,7 @@ import shutil
 # if not today's folder, transfer to hardrive
 
 piDir = "/home/motion"
-destination = "/home/pi/storage"
+destination = "/mnt/USB"
 today = datetime.date.today()
 folder = today.strftime("%m-%d-%y")
 shutil.move(piDir + "/" + folder, destination)

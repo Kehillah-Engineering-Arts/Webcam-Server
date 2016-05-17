@@ -10,7 +10,8 @@ while True:
 	if ((int(current_seconds))%10)==0:
 		folder = datetime.datetime.now().strftime("%m-%d-%y")
 		fullPath = directory + "/" + folder
-		if not os.path.exists(fullPath):
+		print("Folder: " + folder)
+		if not os.path.exists(folder):
 			os.makedirs(fullPath)
 		else:
 			print("fullPath" + fullPath)

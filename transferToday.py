@@ -9,4 +9,5 @@ piDir = "/home/motion"
 destination = "/mnt/USB"
 today = datetime.date.today()
 folder = today.strftime("%m-%d-%y")
+System.out.println("mv " + piDir + "/" + folder + " " + destination)
 os.system("mv " + piDir + "/" + folder + " " + destination)

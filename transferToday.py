@@ -1,5 +1,4 @@
 import datetime
-import shutil
 import os
 
 # if hardrive not plugged in, skip

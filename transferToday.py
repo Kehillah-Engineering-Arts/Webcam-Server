@@ -11,3 +11,4 @@ today = datetime.date.today()
 folder = today.strftime("%m-%d-%y")
 print("mv " + piDir + "/" + folder + " " + destination)
 os.system("mv " + piDir + "/" + folder + " " + destination)
+

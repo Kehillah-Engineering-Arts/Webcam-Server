@@ -14,3 +14,4 @@ shutil.move(piDir + "/" + folder, destination)
 thirtydaysago = today - datetime.timedelta(days=30)
 folder = thirtydaysago.strftime("%m-%d-%y")
 shutil.rmtree(destination+"/"+folder, True)
+

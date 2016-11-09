@@ -10,7 +10,7 @@ This program should probably run itself in a screen
 directory = "/home/motion"
 while True: #Should the loop stop if a button is pressed in the window where it runs?
 	current_seconds = datetime.datetime.now().strftime("%S")
-	if ((int(current_seconds))%1)==0:
+	if ((int(current_seconds))%1) == 0:
 		folder = datetime.datetime.now().strftime("%m-%d-%y")e
 		fullPath = directory + "/" + folder
 		if not os.path.exists(fullPath):

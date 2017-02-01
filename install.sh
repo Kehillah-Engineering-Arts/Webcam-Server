@@ -28,9 +28,9 @@ then
   rm mycron
   
   # These three lines are for freeing up space on the raspberry pi. They remove unnecessary files and clear up roughly 1.6 Gb of space on the drive:
-  sudo cp /etc/network/interfaces /etc/network/interfaces.bak
-  wget https://gist.githubusercontent.com/samatjain/4dda24e14a5b73481e2a/raw/5d9bac8ec40b94833b4e9938121945be252fdee1/Slim-Raspbian.sh -O Slim-Raspbian.sh
-  sh ./Slim-Raspbian.sh | sudo sh
+  # sudo cp /etc/network/interfaces /etc/network/interfaces.bak
+  # wget https://gist.githubusercontent.com/samatjain/4dda24e14a5b73481e2a/raw/5d9bac8ec40b94833b4e9938121945be252fdee1/Slim-Raspbian.sh -O Slim-Raspbian.sh
+  # sh ./Slim-Raspbian.sh | sudo sh
 
   sudo reboot
 fi

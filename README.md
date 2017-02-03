@@ -22,5 +22,9 @@ To teach students how to create webcams in python and to use the webcam to monit
 ### 2. Method:
 As a student-led program, they must learn how to research topics on their lonesome or how to use each other as resources
 
-###### Footnotes:
+### 3. Documentation:
+- motion_install_setup.sh installs and sets up motion.conf for you, meaning you can start from a fresh non-gui Raspbian install.
+- webcam_old is a collection of our old python and shell scripts, which have since been depreciated.
+
+### Footnotes:
 <sup>1:</sup>Not all listed files need to be understood by all students

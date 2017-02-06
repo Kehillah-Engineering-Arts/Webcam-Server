@@ -6,7 +6,7 @@ SUDO=''
 if [ "$EUID" -ne 0 ] ; then
     # while block asks user if they want to continue not as root
     while true; do
-        read -p "You are not root user. Do you want to try with sudo? (y/n) " yn
+        read -p "You are not root user. Install may fail if you try with sudo. Do you wish to continue? (y/n) " yn
         case $yn in
             [Yy]* ) SUDO='sudo'; break;;
             [Nn]* ) exit;;
@@ -25,7 +25,7 @@ else
     done
 fi
 # if user is not root, checks if they are not 
-if [ $SUDO == 'sudo' ] ; then
+if [ "$SUDO" == 'sudo' ] ; then
     $SUDO -v
 else
     echo You are root user.

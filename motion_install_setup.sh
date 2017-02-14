@@ -1,15 +1,15 @@
 #!/bin/bash
-# Must be run as root or with sudo to perform installation
+# Must be run as superuser to perform installation
 
 bold=$(tput bold)
 nor=$(tput sgr0)
 und=$(tput smul)
+title="${bold}${und}Kehillah Engineering Arts Motion Installer and Configurer${nor}" 
 
 while [ "$1" != "" ]; do
     case $1 in 
         -h | --help )
         echo
-        title="${bold}${und}Kehillah Engineering Arts Motion Installer and Configurer${nor}" 
         printf "%*s\n" $(((${#title}+$(tput cols))/3)) "$title"
         echo
         echo "1. This script attempts to install Motion from https://motion-project.github.io"
@@ -21,6 +21,7 @@ while [ "$1" != "" ]; do
         echo
         echo "-h, --help                    View help page"
         echo "-i, --install                 Installs the program"
+        echo "-c, --copy                    Copy motion.conf to destination (must run as superuser)"
         exit;;
 
 
@@ -50,14 +51,23 @@ while [ "$1" != "" ]; do
             done
         fi
         # check sudo privileges 
-            $SUDO -v
+        $SUDO -v
 
+        # install and copy over motion.conf
         $SUDO apt-get install motion
+        $SUDO mv ./motion.conf /etc/motion/
 
+        exit;;
+
+        -c | --copy )
+        mv ./motion.conf /etc/motion/
         exit;;
 
         * )
+        printf "%*s\n" $(((${#title}+$(tput cols))/3)) "$title"
+        echo "Invalid flag. Run with -h flag for instructions."
         exit;;
     esac
 done
-
+printf "%*s\n" $(((${#title}+$(tput cols))/3)) "$title"
+echo "Run with -h flag for instructions."

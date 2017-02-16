@@ -4,19 +4,9 @@
 A shell script to install motion packages on Rapbian
 
 ## TO DO:
-<!-- Old To-Do List:
-- [ ] Find a method to mount a Pi
-- [ ] Power the Pi with a battery
-- [ ] Look through, fix, and understand:<sup>1</sup>
-  1. webcam.py
-   2. transfer.py
-    3. transferToday.py
-- [ ] Mount the webcam
--->
-
-- [ ] Create a script to install motion and edit motion.conf
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > Install motion
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > Edit the motion.conf file<sup>1</sup>
+- [X] Write a script to install motion and edit motion.conf
+- [ ] Edit the motion.conf file<sup>1</sup>
+- [ ] Test script and motion.conf
 
 ### 1. Purpose:
 Teach students how to manage time and use other people's programs in their own modified methods.

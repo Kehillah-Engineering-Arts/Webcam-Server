@@ -1,5 +1,7 @@
+<!-- Do not forget to add two spaces to the end of each footnote when writing new ones -->
+
 # Webcam-Server
-A simple server for a simple webcam
+A shell script to install motion packages on Rapbian
 
 ## TO DO:
 <!-- Old To-Do List:
@@ -17,10 +19,11 @@ A simple server for a simple webcam
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > Edit the motion.conf file<sup>1</sup>
 
 ### 1. Purpose:
-To teach students how to create webcams in python and to use the webcam to monitor the LEA
+Teach students how to manage time and use other people's programs in their own modified methods.
 
 ### 2. Method:
-As a student-led program, they must learn how to research topics on their lonesome or how to use each other as resources
+As a student-led program, they must learn how to research topics on their lonesome or how to use each other as resources  
+Use a shell script to accomplish installation and copy
 
 ### 3. Documentation:
 - motion_install_setup.sh installs and sets up motion.conf for you, meaning you can start from a fresh non-gui Raspbian install.
@@ -28,5 +31,5 @@ As a student-led program, they must learn how to research topics on their loneso
 - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > Has since been moved to its own branch<sup>2</sup>
 
 ### Footnotes:
-1: Not all listed files need to be understood by all students  
+1: Vital to finish before motion install script can be tested  
 2: 'depreciated' branch holds all the old files of the project, which were previously stored haphazardly in a folder on 'master'

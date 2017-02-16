@@ -24,7 +24,9 @@ As a student-led program, they must learn how to research topics on their loneso
 
 ### 3. Documentation:
 - motion_install_setup.sh installs and sets up motion.conf for you, meaning you can start from a fresh non-gui Raspbian install.
-- webcam_old is a collection of our old python and shell scripts, which have since been depreciated.
+- <s>webcam_old is a collection of our old python and shell scripts, which have since been depreciated. </s>
+- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > Has since been moved to its own branch<sup>2</sup>
 
 ### Footnotes:
-<sup>1:</sup>Not all listed files need to be understood by all students
+1: Not all listed files need to be understood by all students  
+2: 'depreciated' branch holds all the old files of the project, which were previously stored haphazardly in a folder on 'master'

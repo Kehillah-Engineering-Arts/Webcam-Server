@@ -26,5 +26,5 @@ Use a shell script to accomplish installation and copy
 
 ### Footnotes:
 1: Vital to finish before motion install script can be tested  
-2: 'depreciated' branch holds all the old files of the project, which were previously stored haphazardly in a folder on 'master'
+2: 'depreciated' branch holds all the old files of the project, which were previously stored haphazardly in a folder on 'master'  
 3: Subject to change

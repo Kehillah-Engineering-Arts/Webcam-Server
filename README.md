@@ -1,8 +1,15 @@
 # Webcam-Server (depreciated branch)
-Old files we created. They don't work very well.
+Old files we created. They don't work very well.  
+This README file is as mostly it was before we switched to motion.
 
 ## TO DO:
-- [X] Nothing
+- [ ] Find a method to mount a Pi
+- [ ] Power the Pi with a battery
+- [ ] Look through, fix, and understand:
+  1. webcam.py
+   2. transfer.py
+    3. transferToday.py
+- [ ] Mount the webcam
 
 ### 1. Purpose:
 To teach students how to create webcams in python and to use the webcam to monitor the LEA

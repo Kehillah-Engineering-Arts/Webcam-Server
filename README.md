@@ -1,4 +1,4 @@
-# Webcam-Server (depreciated branch)
+# Webcam-Server (deprecated branch)
 Old files we created. They don't work very well.  
 This README file is as mostly it was before we switched to motion.
 

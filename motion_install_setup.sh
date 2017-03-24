@@ -6,6 +6,24 @@ nor=$(tput sgr0)
 und=$(tput smul)
 title="${bold}${und}Kehillah Engineering Arts Motion Installer and Configurer${nor}" 
 
+sudomaker()
+{
+SUDO=''
+# if statement checks if user ran as root
+if [ "$EUID" -ne 0 ] ; then
+    # while block asks user if they want to continue not as root
+    while true; do
+        echo "You are not superuser. Cannot be performed if you try without proper privileges."
+        read -p "Do you wish to enable sudo? (y/n) " yn
+        case $yn in
+            [Yy]* ) SUDO='sudo'; break;;
+            [Nn]* ) exit;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+fi
+}
+
 while [ "$1" != "" ]; do
     case $1 in 
         -h | --help )
@@ -22,45 +40,33 @@ while [ "$1" != "" ]; do
         echo "-h, --help                    View help page"
         echo "-i, --install                 Installs the program"
         echo "-c, --copy                    Copy motion.conf to destination (must run as superuser)"
+        echo "-m, --mount                   Mount to /mnt/security. Must be ext3 and in /dev/sda1"
         exit;;
 
 
         -i | --install )
-        SUDO=''
-        # if statement checks if user ran as root
-        if [ "$EUID" -ne 0 ] ; then
-            # while block asks user if they want to continue not as root
-            while true; do
-                echo "You are not superuser. Install cannot be performed if you try without proper privileges."
-                read -p "Do you wish to enable sudo to install Motion? (y/n) " yn
-                case $yn in
-                    [Yy]* ) SUDO='sudo'; break;;
-                    [Nn]* ) exit;;
-                    * ) echo "Please answer yes or no.";;
-                esac
-            done
-        # if user is root, asks if they want to continue as root
-        else
-            while true; do
-                read -p "Are you sure you want to install Motion? (y/n) " yn
-                case $yn in
-                    [Yy]* ) break;;
-                    [Nn]* ) exit;;
-                    * ) echo "Please answer yes or no.";;
-                esac
-            done
-        fi
+        sudomaker
         # check sudo privileges 
         $SUDO -v
-
         # install and copy over motion.conf
         $SUDO apt-get install motion
         $SUDO mv ./motion.conf /etc/motion/
-
         exit;;
 
         -c | --copy )
-        mv ./motion.conf /etc/motion/
+        sudomaker
+        $SUDO mv ./motion.conf /etc/motion/
+        exit;;
+
+        -m | --mount )
+        sudomaker
+        if [-d "/dev/sda1" ]; then
+            $SUDO mkdir /mnt/security
+            $SUDO mount -t ext3 /dev/sda1 /mnt/security
+        else
+            "No drive in /dev/sda1."
+        fi
+        # must be sda1 and must be ext3
         exit;;
 
         * )

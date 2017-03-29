@@ -63,6 +63,7 @@ while [ "$1" != "" ]; do
         if [-d "/dev/sda1" ]; then
             $SUDO mkdir /mnt/security
             $SUDO mount -t ext3 /dev/sda1 /mnt/security
+            $SUDO mkdir /mnt/security/videos
         else
             echo "No drive in /dev/sda1."
         fi

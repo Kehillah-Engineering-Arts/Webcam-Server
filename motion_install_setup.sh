@@ -64,7 +64,7 @@ while [ "$1" != "" ]; do
             $SUDO mkdir /mnt/security
             $SUDO mount -t ext3 /dev/sda1 /mnt/security
         else
-            "No drive in /dev/sda1."
+            echo "No drive in /dev/sda1."
         fi
         # must be sda1 and must be ext3
         exit;;

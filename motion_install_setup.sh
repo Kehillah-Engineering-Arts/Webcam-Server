@@ -84,7 +84,7 @@ while [ "$1" != "" ]; do
         # checks if a drive is mounted before unmount
         sudomaker
         $SUDO -v
-        if grep -gs '/mnt/security' /proc/mounts; then
+        if grep -qs '/mnt/security' /proc/mounts; then
             $SUDO umount /mnt/security
         else
             echo "No drive has been mounted."

@@ -38,35 +38,65 @@ while [ "$1" != "" ]; do
         echo "   code, as everything is simple to understand and comments are frequent."
         echo
         echo "-h, --help                    View help page"
-        echo "-i, --install                 Installs the program"
+        echo "-i, --install                 Installs Motion"
         echo "-c, --copy                    Copy motion.conf to destination (must run as superuser)"
-        echo "-m, --mount                   Mount to /mnt/security. Must be ext3 and in /dev/sda1"
+        echo "-m, --mount                   Mount /dev/sda1 to /mnt/security. Must be ext3"
+        echo "-u, --unmount                 Unmount a drive from /mnt/security."
+        echo "-U, --uninstall               Uninstall and remove dependencies for Motion"
         exit;;
 
 
         -i | --install )
+        # Installs motion, but no configuration file copying
         sudomaker
-        # check sudo privileges 
         $SUDO -v
-        # install and copy over motion.conf
         $SUDO apt-get install motion
         exit;;
 
         -c | --copy )
+        # copy over the motion.conf file to /etc/motion/
         sudomaker
+        $SUDO -v
         $SUDO mv motion.conf /etc/motion/
         exit;;
 
         -m | --mount )
+        # mount HD from /dev/sda1 to /mnt/security
+        # must be ext3, also creates /mnt/security/videos
+        # checks if a drive is already mounted before mount
         sudomaker
-        if [-d "/dev/sda1" ]; then
-            $SUDO mkdir /mnt/security
-            $SUDO mount -t ext3 /dev/sda1 /mnt/security
-            $SUDO mkdir /mnt/security/videos
+        $SUDO -v
+        if grep -gs '/mnt/security' /proc/mounts; then
+            echo "Drive already mounted in /mnt/security"
         else
-            echo "No drive in /dev/sda1."
+            if [-d "/dev/sda1" ]; then
+                $SUDO mkdir /mnt/security
+                $SUDO mount -t -w ext3 /dev/sda1 /mnt/security
+                $SUDO mkdir /mnt/security/videos
+            else
+                echo "No drive in /dev/sda1."
+            fi
         fi
-        # must be sda1 and must be ext3
+        exit;;
+
+        -u | --unmount )
+        # unmount HD from /mnt/security
+        # checks if a drive is mounted before unmount
+        sudomaker
+        $SUDO -v
+        if grep -gs '/mnt/security' /proc/mounts; then
+            $SUDO umount /mnt/security
+        else
+            echo "No drive has been mounted."
+        fi
+        exit;;
+
+        -U | --uninstall )
+        # uninstalls and removes dependencies
+        sudomaker
+        $SUDO -v
+        $SUDO apt-get remove --purge motion
+        $SUDO apt-get autoremove
         exit;;
 
         * )

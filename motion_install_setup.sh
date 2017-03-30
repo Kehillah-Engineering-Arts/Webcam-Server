@@ -50,12 +50,11 @@ while [ "$1" != "" ]; do
         $SUDO -v
         # install and copy over motion.conf
         $SUDO apt-get install motion
-        $SUDO mv ./motion.conf /etc/motion/
         exit;;
 
         -c | --copy )
         sudomaker
-        $SUDO mv ./motion.conf /etc/motion/
+        $SUDO mv motion.conf /etc/motion/
         exit;;
 
         -m | --mount )

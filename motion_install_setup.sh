@@ -57,7 +57,7 @@ while [ "$1" != "" ]; do
         # copy over the motion.conf file to /etc/motion/
         sudomaker
         $SUDO -v
-        $SUDO mv motion.conf /etc/motion/
+        $SUDO cp motion.conf /etc/motion/
         exit;;
 
         -m | --mount )
@@ -71,7 +71,7 @@ while [ "$1" != "" ]; do
         else
             if [-d "/dev/sda1" ]; then
                 $SUDO mkdir /mnt/security
-                $SUDO mount -t -w ext3 /dev/sda1 /mnt/security
+                $SUDO mount /dev/sda1 /mnt/security
                 $SUDO mkdir /mnt/security/videos
             else
                 echo "No drive in /dev/sda1."
